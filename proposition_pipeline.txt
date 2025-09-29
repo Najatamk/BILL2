@@ -1,0 +1,80 @@
+1. Préparation des Données
+
+Vérifier que les fichiers FASTA sont propres et cohérents :
+
+
+Vérifier la qualité des assemblages avec un rapport de contiguïté (N50, nombre de contigs).
+
+Vérifier la complétude avec un outil comme BUSCO pour s’assurer que les génomes sont comparables.
+trées (ensembles d’assemblages) afin de comparer leurs performances.
+
+Approche 1 – Minigraph
+
+Sorties :
+
+Graphe pangenomique initial (GFA) enrichi par alignements Cactus.
+
+VCF consolidé des variants détectés par la stratégie minigraph-cactus
+
+
+Approche 3 – PGGB
+
+Sorties :
+
+Graphe PGGB (GFA) + VCF des variants détectés par PGGB.
+
+
+
+4. Normalisation et Filtrage des vcfs
+
+Normaliser les fichiers VCF pour uniformiser les représentations des variants.
+
+Filtrer les variants selon des critères de qualité (qualité de l’appel, couverture si disponible, cohérence des allèles).
+
+5. Comparaison des Variants
+
+Comparer les VCF issus des 2 approches :
+
+Identifier les variants communs entre méthodes.
+
+Lister les variants spécifiques à chaque approche.
+
+Quantifier les SNPs, indels et variants structuraux par méthode.
+
+Générer des statistiques globales : nombre de variants, longueur cumulée des variants structuraux, distribution par chromosome/contig.
+
+6. Interprétation Biologique
+
+Annoter les variants  afin de déterminer :
+
+Gènes affectés.
+
+Variants dans les régions codantes, non-codantes, promoteurs.
+
+Variants potentiellement impactants (frameshift, stop-gain, etc.).
+
+Comparer les résultats entre approches pour voir laquelle capte le plus de variants dans les régions fonctionnellement importantes.
+
+7. Évaluation des Performances
+
+Comparer la taille et la complexité des graphes produits par chaque approche (nombre de nœuds, d’arêtes).
+
+Documenter le temps de calcul et les ressources utilisées (RAM, CPU).
+
+Évaluer la capacité de chaque approche à capturer les grands réarrangements génomiques.
+
+8. Visualisation et Rapport Final
+
+Visualiser les graphes de pangénome avec un outil comme Bandage ou GfaViz.
+
+Visualiser les variants sur un navigateur génomique (IGV, JBrowse).
+
+Résumer les résultats dans un tableau comparatif (nombre de variants par type, proportion de variants partagés, complexité du graphe).
+
+Discuter des forces et faiblesses de chaque approche pour ce jeu de données :
+
+Sensibilité aux variants structuraux.
+
+Simplicité/complexité du pipeline.
+
+Ressources nécessaires.
