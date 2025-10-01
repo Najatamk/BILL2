@@ -23,3 +23,4 @@ Les graphes de variations, bien que plus coûteux à construire, offrent une vis
 L’étude met en évidence la nécessité de développer, à l’avenir, des approches hybrides conciliant la scalabilité des graphes de Bruijn avec la richesse descriptive et l’accessibilité des graphes de variations, dans la perspective d’une utilisation élargie de la pangenomique humaine en recherche et en médecine de précision.
 
 -----------------------------------------------------------------------------------------------------------------------
+
