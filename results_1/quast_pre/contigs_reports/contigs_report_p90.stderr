@@ -1,0 +1,10 @@
+[M::mm_idx_gen::0.002*4.37] collected minimizers
+[M::mm_idx_gen::0.004*2.37] sorted minimizers
+[M::main::0.004*2.36] loaded/built the index for 1 target sequence(s)
+[M::mm_mapopt_update::0.004*2.33] mid_occ = 500
+[M::mm_idx_stat] kmer size: 19; skip: 19; is_hpc: 0; #seq: 1
+[M::mm_idx_stat::0.004*2.31] distinct minimizers: 6 (0.00% are singletons); average occurrences: 1147.667; average spacing: 2.170; total length: 14940
+[M::worker_pipeline::0.517*0.97] mapped 1 sequences
+[M::main] Version: 2.30-r1287
+[M::main] CMD: /home/najat/miniconda3/envs/BILL/bin/minimap2 -c -x asm10 -B5 -O4,16 --no-long-join -r 200 -N 50 -s 65 -z 200 --mask-level 0.9 --min-occ 200 -g 2500 --score-N 2 --cs -t 2 /home/najat/Master_bioinformatique/M2/Bioanalyse_transcriptomique/BILL2/results/quast_pre/quast_corrected_input/p15_khv.fasta /home/najat/Master_bioinformatique/M2/Bioanalyse_transcriptomique/BILL2/results/quast_pre/quast_corrected_input/p90.fasta
+[M::main] Real time: 0.517 sec; CPU: 0.502 sec; Peak RSS: 0.072 GB

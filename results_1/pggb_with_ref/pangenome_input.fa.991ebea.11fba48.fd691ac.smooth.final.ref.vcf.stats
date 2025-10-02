@@ -1,0 +1,122 @@
+# This file was produced by bcftools stats (1.22+htslib-1.22.1) and can be plotted using plot-vcfstats.
+# The command line was:	bcftools stats  results/pggb_with_ref/pangenome_input.fa.991ebea.11fba48.fd691ac.smooth.final.ref.vcf
+#
+# Definition of sets:
+# ID	[2]id	[3]tab-separated file names
+ID	0	results/pggb_with_ref/pangenome_input.fa.991ebea.11fba48.fd691ac.smooth.final.ref.vcf
+# SN, Summary numbers:
+#   number of records   .. number of data rows in the VCF
+#   number of no-ALTs   .. reference-only sites, ALT is either "." or identical to REF
+#   number of SNPs      .. number of rows with a SNP
+#   number of MNPs      .. number of rows with a MNP, such as CC>TT
+#   number of indels    .. number of rows with an indel
+#   number of others    .. number of rows with other type, for example a symbolic allele or
+#                          a complex substitution, such as ACT>TCGA
+#   number of multiallelic sites     .. number of rows with multiple alternate alleles
+#   number of multiallelic SNP sites .. number of rows with multiple alternate alleles, all SNPs
+# 
+#   Note that rows containing multiple types will be counted multiple times, in each
+#   counter. For example, a row with a SNP and an indel increments both the SNP and
+#   the indel counter.
+# 
+# SN	[2]id	[3]key	[4]value
+SN	0	number of samples:	4
+SN	0	number of records:	373
+SN	0	number of no-ALTs:	0
+SN	0	number of SNPs:	170
+SN	0	number of MNPs:	6
+SN	0	number of indels:	189
+SN	0	number of others:	10
+SN	0	number of multiallelic sites:	15
+SN	0	number of multiallelic SNP sites:	0
+# TSTV, transitions/transversions
+#   - transitions, see https://en.wikipedia.org/wiki/Transition_(genetics)
+#   - transversions, see https://en.wikipedia.org/wiki/Transversion
+# TSTV	[2]id	[3]ts	[4]tv	[5]ts/tv	[6]ts (1st ALT)	[7]tv (1st ALT)	[8]ts/tv (1st ALT)
+TSTV	0	113	57	1.98	113	57	1.98
+# SiS, Singleton stats:
+#   - allele count, i.e. the number of singleton genotypes (AC=1)
+#   - number of transitions, see above
+#   - number of transversions, see above
+#   - repeat-consistent, inconsistent and n/a: experimental and useless stats [DEPRECATED]
+# SiS	[2]id	[3]allele count	[4]number of SNPs	[5]number of transitions	[6]number of transversions	[7]number of indels	[8]repeat-consistent	[9]repeat-inconsistent	[10]not applicable
+SiS	0	1	152	104	48	155	0	0	155
+# AF, Stats by non-reference allele frequency:
+# AF	[2]id	[3]allele frequency	[4]number of SNPs	[5]number of transitions	[6]number of transversions	[7]number of indels	[8]repeat-consistent	[9]repeat-inconsistent	[10]not applicable
+AF	0	0.000000	152	104	48	156	0	0	156
+AF	0	0.660000	12	5	7	24	0	0	24
+AF	0	0.990000	6	4	2	23	0	0	23
+# QUAL, Stats by quality
+# QUAL	[2]id	[3]Quality	[4]number of SNPs	[5]number of transitions (1st ALT)	[6]number of transversions (1st ALT)	[7]number of indels
+QUAL	0	60.0	170	113	57	189
+# IDD, InDel distribution:
+# IDD	[2]id	[3]length (deletions negative)	[4]number of sites	[5]number of genotypes	[6]mean VAF
+IDD	0	-60	2	0	.
+IDD	0	-54	1	0	.
+IDD	0	-48	1	0	.
+IDD	0	-45	1	0	.
+IDD	0	-33	3	0	.
+IDD	0	-27	2	0	.
+IDD	0	-26	1	0	.
+IDD	0	-25	1	0	.
+IDD	0	-24	3	0	.
+IDD	0	-21	1	0	.
+IDD	0	-18	1	0	.
+IDD	0	-17	2	0	.
+IDD	0	-15	1	0	.
+IDD	0	-14	1	0	.
+IDD	0	-12	4	0	.
+IDD	0	-11	2	0	.
+IDD	0	-9	6	0	.
+IDD	0	-8	1	0	.
+IDD	0	-7	2	0	.
+IDD	0	-6	8	0	.
+IDD	0	-5	4	0	.
+IDD	0	-4	1	0	.
+IDD	0	-3	8	0	.
+IDD	0	-2	6	0	.
+IDD	0	-1	16	0	.
+IDD	0	1	56	0	.
+IDD	0	2	8	0	.
+IDD	0	3	16	0	.
+IDD	0	4	2	0	.
+IDD	0	5	1	0	.
+IDD	0	6	11	0	.
+IDD	0	7	2	0	.
+IDD	0	9	11	0	.
+IDD	0	10	2	0	.
+IDD	0	12	3	0	.
+IDD	0	15	1	0	.
+IDD	0	18	1	0	.
+IDD	0	19	1	0	.
+IDD	0	24	1	0	.
+IDD	0	25	1	0	.
+IDD	0	27	1	0	.
+IDD	0	31	1	0	.
+IDD	0	36	1	0	.
+IDD	0	39	1	0	.
+IDD	0	56	1	0	.
+IDD	0	60	2	0	.
+# ST, Substitution types:
+# ST	[2]id	[3]type	[4]count
+ST	0	A>C	12
+ST	0	A>G	24
+ST	0	A>T	1
+ST	0	C>A	8
+ST	0	C>G	13
+ST	0	C>T	23
+ST	0	G>A	14
+ST	0	G>C	6
+ST	0	G>T	5
+ST	0	T>A	1
+ST	0	T>C	52
+ST	0	T>G	11
+# DP, depth:
+#   - set id, see above
+#   - the depth bin, corresponds to the depth (unless --depth was given)
+#   - number of genotypes with this depth (zero unless -s/-S was given)
+#   - fraction of genotypes with this depth (zero unless -s/-S was given)
+#   - number of sites with this depth
+#   - fraction of sites with this depth
+# DP, Depth distribution
+# DP	[2]id	[3]bin	[4]number of genotypes	[5]fraction of genotypes (%)	[6]number of sites	[7]fraction of sites (%)

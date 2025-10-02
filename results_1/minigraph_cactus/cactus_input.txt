@@ -1,0 +1,12 @@
+(KHV_U_trunc,(p15_1,(p15_6,(p90_2,p90_6))));
+KHV_U_trunc	/home/najat/Master_bioinformatique/M2/Bioanalyse_transcriptomique/BILL2/clean_fasta/ref/KHV-U_trunc.fasta
+p15_1	/home/najat/Master_bioinformatique/M2/Bioanalyse_transcriptomique/BILL2/clean_fasta/p15_1_clean.fasta
+p15_6	/home/najat/Master_bioinformatique/M2/Bioanalyse_transcriptomique/BILL2/clean_fasta/p15_6_clean.fasta
+p90_2	/home/najat/Master_bioinformatique/M2/Bioanalyse_transcriptomique/BILL2/clean_fasta/p90_2_clean.fasta
+p90_6	/home/najat/Master_bioinformatique/M2/Bioanalyse_transcriptomique/BILL2/clean_fasta/p90_6_clean.fasta
+cactus_path: /abs/path/cactus_v3.0.0.sif
+input_file: results/minigraph_cactus/minigraph_samples.txt
+output_dir: results/minigraph_cactus/minigraph_output
+reference: KHV_U_trunc
+prefix: khv
+tmp_dir: results/minigraph_cactus/tmp

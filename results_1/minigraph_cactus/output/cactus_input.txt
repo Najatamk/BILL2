@@ -1,0 +1,10 @@
+(KHV_U_trunc:1.0,(p15_1:1.0,(p15_6:1.0,(p90_2:1.0,p90_6:1.0)Anc3:1.0)Anc2:1.0)Anc1:1.0)Anc0;
+KHV_U_trunc	results/minigraph_cactus/output/KHV-U_trunc.fasta
+p15_1	results/minigraph_cactus/output/p15_1_clean.fasta
+p15_6	results/minigraph_cactus/output/p15_6_clean.fasta
+p90_2	results/minigraph_cactus/output/p90_2_clean.fasta
+p90_6	results/minigraph_cactus/output/p90_6_clean.fasta
+Anc0	results/minigraph_cactus/output/Anc0.fa.gz
+Anc1	results/minigraph_cactus/output/Anc1.fa.gz
+Anc2	results/minigraph_cactus/output/Anc2.fa.gz
+Anc3	results/minigraph_cactus/output/Anc3.fa.gz
