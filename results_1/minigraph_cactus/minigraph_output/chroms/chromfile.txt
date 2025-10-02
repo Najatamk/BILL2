@@ -1,1 +1,0 @@
-DQ657948.1	/home/najat/Master_bioinformatique/M2/Bioanalyse_transcriptomique/BILL2/results/minigraph_cactus/minigraph_output/chroms/seqfiles/DQ657948.1.seqfile	/home/najat/Master_bioinformatique/M2/Bioanalyse_transcriptomique/BILL2/results/minigraph_cactus/minigraph_output/chroms/DQ657948.1/DQ657948.1.paf

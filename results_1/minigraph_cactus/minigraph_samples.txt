@@ -1,5 +1,0 @@
-KHV_U_trunc	/home/najat/Master_bioinformatique/M2/Bioanalyse_transcriptomique/BILL2/clean_fasta/ref/KHV-U_trunc.fasta
-p15_1	/home/najat/Master_bioinformatique/M2/Bioanalyse_transcriptomique/BILL2/clean_fasta/p15_1_clean.fasta
-p15_6	/home/najat/Master_bioinformatique/M2/Bioanalyse_transcriptomique/BILL2/clean_fasta/p15_6_clean.fasta
-p90_2	/home/najat/Master_bioinformatique/M2/Bioanalyse_transcriptomique/BILL2/clean_fasta/p90_2_clean.fasta
-p90_6	/home/najat/Master_bioinformatique/M2/Bioanalyse_transcriptomique/BILL2/clean_fasta/p90_6_clean.fasta

@@ -1,5 +1,0 @@
-S1	E1	S2	E2	Reference	Contig	IDY	Ambiguous	Best_group
-1	14940	1	14940	p15_KHV_genome	p90_KHV_genome	100.0		True
-relocation, inconsistency = -11520
-3421	14940	14941	26460	p15_KHV_genome	p90_KHV_genome	100.0		True
-CONTIG	p90_KHV_genome	26460	misassembled

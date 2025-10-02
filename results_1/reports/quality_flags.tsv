@@ -1,3 +1,0 @@
-sample	final_contigs	final_total_bp	final_N50	final_GC_mean	size_deviation_pct	gc_deviation_pct_points	quality_flags
-p15	1	14940	14940	50.0	94.94	9.20	SIZE_DEVIATION;GC_DEVIATION
-p90	1	26460	26460	50.0	91.03	9.20	SIZE_DEVIATION;GC_DEVIATION
