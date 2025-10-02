@@ -1,0 +1,154 @@
+# ===============================
+# Project .gitignore for BILL2
+# Bioinformatics / Pangenome & QC Pipeline
+# Generated: 2025-10-02
+# Adjust as needed. Keep only source, configs, and lightweight assets.
+# ===============================
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+.mypy_cache/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# ---- Jupyter Notebook metadata ----
+*.nbconvert.ipynb
+
+# ---- Environments ----
+.env
+.venv/
+venv/
+env/
+.conda/
+*.conda
+pip-wheel-metadata/
+.poetry-cache/
+
+# ---- Logs & runtime ----
+*.log
+*.err
+*.out
+slurm-*.out
+slurm-*.err
+nohup.out
+
+# ---- Data (raw & large) ----
+# Keep references to original FASTA names in documentation instead.
+# If you need to version SMALL example data, move them to data/examples/
+/data/
+!data/README*.md
+# Allow reference genomes if intentionally tracked:
+!data/khv_reference.fasta
+
+# ---- Results / outputs / reports ----
+/results/
+!/results/README*.md
+
+# ---- BUSCO / Kraken / QUAST generated directories ----
+**/run_varicellovirus_odb10/
+**/prodigal_output/
+**/busco_*/*
+quast_analysis/
+kraken_output*
+kraken_report*.txt
+kraken2_*.out
+kraken2_*.err
+
+# ---- Pangenome / graph temp outputs ----
+**/tmp/
+**/temp/
+**/.snakemake/
+.snakemake/
+*.snakemake_timestamp
+
+# ---- Snakemake logs & profiles ----
+*.snakemake.log
+.snakejob.*
+
+# ---- Cactus / PGGB intermediate artifacts ----
+**/cactus-output/
+**/cactus_work/
+**/jobStore/
+**/pggb/output/
+
+# ---- Alignment / mapping intermediates ----
+*.bam
+*.bam.bai
+*.sam
+*.cram
+*.cram.crai
+*.pileup
+
+# ---- Assemblies / sequences (large) ----
+*.fai
+*.fasta.fai
+*.fastq
+*.fastq.gz
+*.fq
+*.fq.gz
+*.fa.gz
+*.idx
+
+# ---- Variant calling / annotation intermediates ----
+*.vcf
+*.vcf.gz
+*.vcf.gz.tbi
+*.gff
+*.gff3
+*.gtf
+*.bed
+*.bed.gz
+*.bedGraph
+*.bcf
+*.bcf.csi
+
+# ---- Compressed / archives ----
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+*.bz2
+*.xz
+
+# ---- Container / images ----
+*.sif
+!cactus_v3.0.0.sif  # Keep this specific Singularity image if required
+
+# ---- System / OS noise ----
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ---- Editors / IDE ----
+.vscode/
+.idea/
+*.code-workspace
+
+# ---- Misc large or temporary ----
+*.tmp
+*.temp
+*.bak
+*.swp
+*~
+
+# ---- Generated analytical summaries ----
+report.html
+report.pdf
+report.txt
+transposed_report.*
+icarus.html
+
+# ---- Security / credentials (add real secrets patterns if any) ----
+*.key
+*.crt
+*.pem
+*.token
+.secrets/
+
+# =====================================================
+# If you need to commit an otherwise ignored file, use:
+#   git add -f path/to/file
+# =====================================================
