@@ -906,12 +906,19 @@ def run_cactus_pipeline(cfg: PipelineConfig) -> Optional[Path]:
     else:
         config_file = config_dir / 'auto_config.yaml'
         # Build a minimal config using the PanSN-formatted file
+        output_dir = work_root / 'output'
+        output_dir.mkdir(parents=True, exist_ok=True)
+        tmp_dir = work_root / 'tmp'
+        tmp_dir.mkdir(parents=True, exist_ok=True)
         seq_lines = [
             '# Auto-generated cactus config with PanSN formatting',
             'genomes:',
-            f'  combined: {combined_fa}',
+            f'  combined: {combined_fa.resolve()}',
             'reference: ref',
-            f'output_prefix: {cfg.cactus_output_prefix}'
+            f'output_dir: {output_dir.resolve()}',
+            f'tmp_dir: {tmp_dir.resolve()}',
+            f'output_prefix: {cfg.cactus_output_prefix}',
+            f'threads: {cfg.pangenome_threads}'
         ]
         config_file.write_text('\n'.join(seq_lines) + '\n')
     expected_hal = work_root / 'output' / f"{cfg.cactus_output_prefix}.hal"
