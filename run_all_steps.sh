@@ -87,16 +87,83 @@ echo ""
 # Configuration - EDIT THESE PATHS FOR YOUR SYSTEM
 # ==================================================
 
-# Input genomes (cleaned/assembled)
-CLEANED_GENOMES=(
-    "p15_1:clean_fasta/p15_1_clean.fasta"
-    "p15_6:clean_fasta/p15_6_clean.fasta"
-    "p90_2:clean_fasta/p90_2_clean.fasta"
-    "p90_6:clean_fasta/p90_6_clean.fasta"
-)
+# Auto-detect genomes directly from data/Assembly_* directories
+echo "🔍 Détection automatique des génomes depuis data/..."
+CLEANED_GENOMES=()
 
-# Reference genome for pangenome
-REFERENCE_FASTA="clean_fasta/ref/KHV-U_trunc.fasta"
+# Detect all P15 assemblies directly from data/Assembly_P15/
+echo ""
+echo "📂 Recherche dans data/Assembly_P15/..."
+P15_COUNT=0
+for assembly_dir in data/Assembly_P15/*/; do
+    if [ -d "$assembly_dir" ]; then
+        fasta="$assembly_dir/assembly.fasta"
+        if [ -f "$fasta" ]; then
+            # Extract sample name from directory (e.g., P15-1_barcode01_FlorisF1_flye -> P15-1_barcode01)
+            dir_name=$(basename "$assembly_dir")
+            # Extract P15-X_barcodeYY to distinguish duplicates
+            sample_name=$(echo "$dir_name" | grep -oE '^P15-[0-9]+_barcode[0-9]+')
+            
+            CLEANED_GENOMES+=("$sample_name:$fasta")
+            echo "   ✓ $sample_name: $fasta"
+            P15_COUNT=$((P15_COUNT + 1))
+        fi
+    fi
+done
+echo "   📊 P15: $P15_COUNT échantillons trouvés"
+
+# Detect all P90 assemblies directly from data/Assembly_P90/
+echo ""
+echo "📂 Recherche dans data/Assembly_P90/..."
+P90_COUNT=0
+for assembly_dir in data/Assembly_P90/*/; do
+    if [ -d "$assembly_dir" ]; then
+        fasta="$assembly_dir/assembly.fasta"
+        if [ -f "$fasta" ]; then
+            # Extract sample name from directory (e.g., P90-3_merged_flye -> P90-3)
+            dir_name=$(basename "$assembly_dir")
+            # Extract just P90-X or P90-XX (number can be 1-2 digits)
+            sample_name=$(echo "$dir_name" | grep -oE '^P90-[0-9]+')
+            
+            CLEANED_GENOMES+=("$sample_name:$fasta")
+            echo "   ✓ $sample_name: $fasta"
+            P90_COUNT=$((P90_COUNT + 1))
+        fi
+    fi
+done
+echo "   📊 P90: $P90_COUNT échantillons trouvés"
+
+# If no genomes found, show error
+if [ ${#CLEANED_GENOMES[@]} -eq 0 ]; then
+    echo ""
+    echo "❌ ERREUR: Aucun fichier assembly.fasta trouvé!"
+    echo ""
+    echo "Vérifié dans:"
+    echo "   - data/Assembly_P15/*/assembly.fasta"
+    echo "   - data/Assembly_P90/*/assembly.fasta"
+    echo ""
+    exit 1
+fi
+
+echo ""
+echo "   ✅ Total: ${#CLEANED_GENOMES[@]} génomes détectés"
+echo ""
+
+# Reference genome for pangenome (use directly from data/ref/)
+REFERENCE_FASTA=""
+if [ -f "data/ref/KHV-U_trunc.fasta" ]; then
+    REFERENCE_FASTA="data/ref/KHV-U_trunc.fasta"
+elif [ -f "data/ref/KHV-U.fasta" ]; then
+    REFERENCE_FASTA="data/ref/KHV-U.fasta"
+elif [ -f "data/ref/KHV-J.fasta" ]; then
+    REFERENCE_FASTA="data/ref/KHV-J.fasta"
+else
+    echo "❌ ERREUR: Aucune référence KHV trouvée dans data/ref/!"
+    exit 1
+fi
+
+echo "📖 Référence utilisée: $REFERENCE_FASTA"
+echo ""
 
 # Optional: Raw genomes for pre-QC (comment out if not needed)
 # RAW_GENOMES=(
@@ -151,15 +218,22 @@ echo ""
 echo "All input files found. Starting pipeline..."
 echo ""
 
-# Build genome arguments
-GENOME_ARGS=""
+# Build genome arguments (all genomes after single --genomes flag)
+GENOME_ARGS="--genomes"
 for genome in "${CLEANED_GENOMES[@]}"; do
-    GENOME_ARGS="$GENOME_ARGS --genomes $genome"
+    GENOME_ARGS="${GENOME_ARGS} ${genome}"
 done
+
+echo ""
+echo "📋 Passing ${#CLEANED_GENOMES[@]} genomes to pipeline:"
+for genome in "${CLEANED_GENOMES[@]}"; do
+    echo "   - $genome"
+done
+echo ""
 
 # Run with --all flag
 python3 unified_pipeline.py \
-    $GENOME_ARGS \
+    ${GENOME_ARGS} \
     --pangenome-reference-fasta "$REFERENCE_FASTA" \
     --all \
     --quast-threads "$THREADS" \
